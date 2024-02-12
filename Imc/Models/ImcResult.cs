@@ -2,12 +2,19 @@
 {
     public class ImcResult
     {
+
         public DateTime MeasureDate{ get; set; }
         public double ImcValue { get; set; }
+
+        public IMCstatus Status { get; set; }
     }
 }
-public enum GenderType
+
+public enum IMCstatus
 {
-    Male,
-    Female
+    Magreza,
+    Normal,
+    Sobrepeso,
+    Obesidade,
+    ObesidadeGrave
 }

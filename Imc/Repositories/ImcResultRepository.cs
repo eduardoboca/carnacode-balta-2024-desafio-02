@@ -28,6 +28,24 @@ namespace Imc.Repositories
         {
             var key = (_localStorage.Length + 1).ToString();
             result.ImcValue = imcParameters.Weight / (imcParameters.Height * imcParameters.Height);
+            if (imcParameters.Is65Plus)
+            {
+                if (result.ImcValue <= 22)
+                    result.Status = IMCstatus.Magreza;
+                else if (result.ImcValue < 27)
+                    result.Status = IMCstatus.Normal;
+                else
+                    result.Status = IMCstatus.Sobrepeso;
+            }
+            else
+            {
+                if (result.ImcValue < 18.5)
+                    result.Status = IMCstatus.Magreza;
+                else if (result.ImcValue < 25)
+                    result.Status = IMCstatus.Normal;
+                else
+                    result.Status = IMCstatus.Sobrepeso;
+            }
             _localStorage.SetItem(key, result);
         }
     }
