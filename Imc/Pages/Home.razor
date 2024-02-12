@@ -1,0 +1,67 @@
+﻿@page "/"
+@using Imc.Models
+@using Imc.Repositories
+@inject ILocalStorageService LocalStorage
+
+<PageTitle>Imc</PageTitle>
+
+<main class="todo">
+    <div class="caixa">
+        <div>
+            <h1>Cálculo de IMC</h1>
+        </div>
+        <EditForm Model="_imcParameters" OnValidSubmit="DoCalculate">
+            <DataAnnotationsValidator />            
+            <div class="flex flex-column">
+                <div>
+                    <InputNumber class="input-text" @bind-Value="_imcParameters.Height" placeholder="Altura" />
+                    <ValidationMessage For="@(() => _imcParameters.Height)" />
+                </div>
+
+                <div>
+                    <InputNumber class="input-text" @bind-Value="_imcParameters.Weight" placeholder="Peso" />
+                    <ValidationMessage For="@(() => _imcParameters.Weight)" />
+                </div>
+
+                <div>
+                    <InputText list="genderOptions" @bind-Value="_genderText" placeholder="Sexo" />
+
+                    <ValidationMessage For="@(() => _imcParameters.Gender)" />
+                    <datalist id="genderOptions">
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                    </datalist>
+                </div>
+
+            </div>
+            <div class="checkbox-container">
+                <input class="checkbox" type="checkbox" id="age" />
+                <label class="checkbox-label" for="age"> Eu tenho 65 anos ou mais</label><br>
+            </div>
+            <div>
+                <button class="button-primary" type="button" @onclick="DoCalculate" >Calcular meu IMC</button>
+            </div>
+            <div>
+                <button class="button-secondary white-background">Entender o Cálculo</button>
+            </div>
+
+        </EditForm>
+    </div>
+</main>
+
+
+@code {
+    private ImcParameters _imcParameters = new();
+    private string _genderText = "Masculino";
+
+    private void DoCalculate()
+    {
+        if (Enum.TryParse(typeof(GenderType), _genderText.ToUpper(), true, out var gender))
+        {
+            _imcParameters.Gender = (GenderType)gender;
+            var imcResultRepository = new ImcResultRepository(LocalStorage);
+            imcResultRepository.Create(new ImcResult { MeasureDate = DateTime.Now }, _imcParameters);
+            var history = imcResultRepository.Get();
+        }
+    }
+}
