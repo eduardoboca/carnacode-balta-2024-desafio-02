@@ -1,6 +1,6 @@
 {
-  "name": "Imc",
-  "short_name": "Imc",
+  "name": "IMC",
+  "short_name": "IMC",
   "id": "./",
   "start_url": "./",
   "display": "standalone",

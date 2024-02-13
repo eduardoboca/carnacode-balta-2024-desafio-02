@@ -1,3 +1,4 @@
+﻿
 body {
     background-color: white;
     margin: 0;
@@ -15,7 +16,7 @@ body {
 
 titulo {
     margin-bottom: 2px;
-    /* Adicione ou ajuste o valor da margem conforme necess�rio */
+    /* Adicione ou ajuste o valor da margem conforme necessário */
 }
 
 .caixa {
@@ -27,7 +28,6 @@ titulo {
     margin-top: 69px;
     align-items: center;
     text-align: center;
-
 }
 
 .logo-container {
@@ -58,13 +58,13 @@ titulo {
     z-index: 2;
 }
 
-.caixa>div {
+.caixa > div {
     margin-bottom: 20px;
 }
 
-.caixa>div:last-child {
-    margin-bottom: 0;
-}
+    .caixa > div:last-child {
+        margin-bottom: 0;
+    }
 
 .input-text {
     width: calc(100% - 10px);
@@ -82,9 +82,9 @@ titulo {
     flex-direction: column;
 }
 
-.flex>div {
-    margin-bottom: 10px;
-}
+    .flex > div {
+        margin-bottom: 10px;
+    }
 
 .button-primary {
     width: 100%;
@@ -118,25 +118,24 @@ titulo {
     cursor: pointer;
 }
 
-.button-secondary.white-background {
-    width: 90%;
-    background-color: white;
-    border: 2px solid #45FEFE;
-    /* Define a borda azul */
-}
+    .button-secondary.white-background {
+        width: 90%;
+        background-color: white;
+        border: 2px solid #45FEFE;
+        /* Define a borda azul */
+    }
 
 .checkbox-container {
     display: flex;
     align-items: center;
 }
 
-.checkbox-container input[type="checkbox"] {
-    margin-right: 5px;
-}
+    .checkbox-container input[type="checkbox"] {
+        margin-right: 5px;
+    }
 
 .checkbox-label {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 600px;
     color: #666666;
-
 }

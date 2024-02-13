@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NovaPasta\**" />
+    <Content Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\assets\texto-para-publicacao-nas-redes-sociais.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazor.LocalStorage.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.1" PrivateAssets="all" />
@@ -18,7 +29,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\" />
+    <Folder Include="Img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\app.fig" />
+    <None Include="wwwroot\icon-no-bg.png" />
+    <None Include="wwwroot\icon.png" />
   </ItemGroup>
 
 </Project>
